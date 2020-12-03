@@ -1,0 +1,6 @@
+Total numbers {{delete_user.name}} {{delete_user.surname}} - {{ delete_user.phones|count }}
+{% for number in delete_user.phones %}
+{{delete_user.phones.index(number)+1}}   {{number}}
+{% endfor %}=====================================
+Which number should I delete?
+Enter the number from the list that corresponds to the phone number:

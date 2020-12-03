@@ -1,0 +1,13 @@
+All the record with number = {{number}} :
+=================================================
+Total entries - {{ users_show|count }}
+=================================================
+{% for user in users_show %}
+Name             - {{ user.name }}
+Surname          - {{user.surname}}
+Nickname/Moniker - {{user.nickname}}
+Birthday         - {{user.birthday}}
+Numbers:
+{% for number in user.phones %}    {{number}}
+{% endfor %}====================================
+{% endfor %}
