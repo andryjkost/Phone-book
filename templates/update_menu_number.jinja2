@@ -1,0 +1,7 @@
+Total nombers {{user_update.name}} {{user_update.surname}} - {{ user_update.phone|count }}
+{% for nomber in user_update.phone %}
+{{user_update.phone.index(nomber)+1}}   {{number}}
+{% endfor %}=====================================
+[1]Update one of the existing numbers?
+[2]Or add another new one?
+Type in a number (1-2):

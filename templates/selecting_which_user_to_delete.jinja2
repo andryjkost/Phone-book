@@ -1,0 +1,15 @@
+
+Registered with this number- - {{ users|count }}
+=================================================
+{% for user in users %}
+{{users.index(user)+1}}
+Name             - {{ user.name }}
+Surname          - {{user.surname}}
+Nickname/Moniker - {{user.nickname}}
+Birthday         - {{user.birthday}}
+Numbers:
+{% for number in user.phones %}    {{number}}
+{% endfor %}====================================
+{% endfor %}
+Which user do you want to delete?
+Enter its serial number from this list:
