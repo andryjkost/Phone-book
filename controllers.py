@@ -21,7 +21,6 @@ def checking_the_correct_bd_format(birthday,control_try_input_bd):
 
                 except ValueError:
                     isValidDate = False
-                    return control_try_input_bd
                 if isValidDate == False:
                     print('The input of birth date is incorrect. \n')
                     print('Please, try again\n')
@@ -313,6 +312,9 @@ def update_controller(data=None, cls=True):
                 menu_controller()
         menu_controller()
     if choice == '5':
+        new_nick= input("Enter new name >> ")
+        user_update.nickname = new_nick.title()
+        print("\033[1mChanged successfully\033[0m")
         menu_controller()
     else:
         menu_controller()
