@@ -18,7 +18,7 @@ pip install -r requirements.txt
 
 
 
-Ссылка на подробный видеоурок, как пользоваться моим приложением. Ролик на ютубе.https://youtu.be/fwGXZl9CDII https://youtu.be/4mSVC26hkDA
+Ссылка на подробный видеоурок, как пользоваться моим приложением. Ролик на ютубе.https://youtu.be/fwGXZl9CDII https://youtu.be/47f9afCIhf0
 
 Данные. Все хранится в файле phones.sqlite 
 
