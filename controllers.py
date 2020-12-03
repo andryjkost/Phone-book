@@ -171,19 +171,17 @@ def delete_controller(data=None, cls=True):
                 print('The input of number is incorrect.\n')
             else:
                 flag = False  # Проверка номера на наличие
-                numbers = Phone.all()
+                users = User.all()
                 delete_numbers = []
-                for i in numbers:
-                    if i.phone == number:
-                        delete_numbers.append(i.user_id)
-                        flag = True
+                for i in users:
+                    for num in i.phones:
+                        if num.phone == number:
+                            delete_numbers.append(i)
+                            flag = True
                 if len(delete_numbers) >= 1:
-                    users = []
-                    for i in range(len(delete_numbers)):
-                        users.append(User.search_by_ID(delete_numbers[i]))
-
                     correct_delete = False
                     correct_input = r'\d'
+                    users = delete_numbers
                     while correct_delete == False:
                         render_template(context={'users': users}, template="selecting_which_user_to_delete.jinja2",
                                         cls=cls)
@@ -198,8 +196,7 @@ def delete_controller(data=None, cls=True):
                             print('Please, try again\n')
                 else:
                     while flag == False:  # Если не нашли человека
-                        render_template(context={'users': users}, template=" could'nt_find_someone_delete_phone.jinja2",
-                                        cls=cls)
+                        render_template(context={'users': users}, template="could'nt_find_someone_delete_phone.jinja2", cls=cls)
                         choice = input()
                         if choice == '1':
                             delete_controller(data=None, cls=True)
@@ -545,45 +542,6 @@ def show_the_entry(data=None, cls=True):
         menu_controller()
     menu_controller()
 
-
-
-
-
-
-# elif choice == "3":
-#         render_template(context={}, template="user_nickname.jinja2", cls=cls)
-#         name = input()
-#         name = name.title()
-#         users = User.search_by_nickname()
-#         render_template(context={'users': users}, template="search_by_nickname.jinja2", cls=cls)
-#         render_template(context={}, template="menu_show_enty_2.jinja2", cls=cls)
-#         choice_2 = input()
-#         if choice_2 == "1":
-#             show_the_entry()
-#         elif choice_2 == "2":
-#             menu_controller()
-#         else:
-#             print("Invalid input\n")
-#             show_the_entry()
-#     elif choice == "3":
-#         render_template(context={}, template="user_nickname.jinja2", cls=cls)
-#         name = input()
-#         name = name.title()
-#         users = User.search_by_number()
-#         render_template(context={'users': users}, template="search_by_number.jinja2", cls=cls)
-#         render_template(context={}, template="menu_show_enty_2.jinja2", cls=cls)
-#         choice_2 = input()
-#         if choice_2 == "1":
-#             show_the_entry()
-#         elif choice_2 == "2":
-#             menu_controller()
-#         else:
-#             print("Invalid input\n")
-#             show_the_entry()
-#
-#
-#
-#
 
 def check_age(data=None, cls=True):
     while True:
